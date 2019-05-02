@@ -1,0 +1,11 @@
+{
+  "name": "dropbox-notes",
+  "version": "0.0.0",
+  "description": "A web app for viewing and search my notes stored in Dropbox on any device.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hadrian Hughes",
+  "license": "MIT"
+}
