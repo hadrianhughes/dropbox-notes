@@ -13,7 +13,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'build')
 	},
 	plugins: [
-		new CopyPlugin([ from: 'static' ])
+		new CopyPlugin([{ from: 'static' }])
 	]
 };
 
