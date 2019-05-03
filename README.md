@@ -17,10 +17,11 @@ A web app for viewing and search my notes stored in Dropbox on any device.
 
 ## Performance Budget
 
-| Metric              | Value    |
-|---------------------|----------|
-| JS Bundle           | < 250kb  |
-| CSS Bundle          | < 100kb  |
-| Time to first byte  | < 50ms   |
-| Time to interactive | < 2000ms |
+| Metric                         | Value    |
+|--------------------------------|----------|
+| JS Bundle                      | < 250kb  |
+| CSS Bundle                     | < 100kb  |
+| Time to first byte             | < 50ms   |
+| Time to first meaningful paint | < 300ms  |
+| Time to interactive            | < 1500ms |
 
