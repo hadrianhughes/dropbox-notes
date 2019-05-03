@@ -20,11 +20,8 @@ A web app for viewing and search my notes stored in Dropbox on any device.
 | Metric              | Value    |
 |---------------------|----------|
 | JS Bundle           | < 250kb  |
-|---------------------|----------|
 | CSS Bundle          | < 100kb  |
-|---------------------|----------|
 | Time to first byte  | < 50ms   |
-|---------------------|----------|
 | Time to interactive | < 2000ms |
 |---------------------|----------|
 
