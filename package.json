@@ -18,6 +18,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "copy-webpack-plugin": "^5.0.3",
+    "dropbox": "^4.0.17",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
     "husky": "^2.2.0",
