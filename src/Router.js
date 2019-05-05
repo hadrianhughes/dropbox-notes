@@ -1,21 +1,19 @@
 import React from 'react';
-import Auth from './context/auth';
-import Button from './components/Button';
+import State from './context/state';
 
 const Router = () => (
-  <Auth.Consumer>
+  <State.Consumer>
     {
-      ({ accessToken, folder, dropbox }) => (
-        accessToken && folder ?
-          <p>Authorized</p>
+      ({ state }) => (
+        state.accessToken && state.folder ?
+          <p>AUTHORIZED</p>
           :
           <div>
-            {accessToken}
-            <Button label="Authorize" href={dropbox.getAuthenticationUrl('http://localhost:8080')} />
+            TO AUTHORIZE
           </div>
       )
     }
-  </Auth.Consumer>
+  </State.Consumer>
 );
 
 export default Router;
