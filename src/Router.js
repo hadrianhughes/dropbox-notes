@@ -1,12 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-
-const component = () => <h1>Setup</h1>;
+import Auth from './context/auth';
 
 const Router = () => (
-  <BrowserRouter>
-    <Route path='/setup' exact component={component} />
-  </BrowserRouter>
+  <Auth.Consumer>
+    {
+      (accessToken, folder) => {
+        if (accessToken && folder) {
+          return <h1>Authorized</h1>;
+        }
+
+        return <h1>Unauthorized</h1>;
+      }
+    }
+  </Auth.Consumer>
 );
 
 export default Router;

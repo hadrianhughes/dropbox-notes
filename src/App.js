@@ -1,9 +1,14 @@
 import React from 'react';
 import Router from './Router';
+import GlobalStyles from './styles/global';
+import AuthProvider from './providers/auth';
 
 const App = () => (
   <div>
-    <Router />
+    <GlobalStyles />
+    <AuthProvider>
+      <Router />
+    </AuthProvider>
   </div>
 );
 
