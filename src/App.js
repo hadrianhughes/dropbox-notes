@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Router from './Router';
 import GlobalStyles from './styles/global';
 import AuthProvider from './providers/auth';
 
 const App = () => (
-  <div>
+  <Fragment>
     <GlobalStyles />
     <AuthProvider>
       <Router />
     </AuthProvider>
-  </div>
+  </Fragment>
 );
 
 export default App;
