@@ -1,5 +1,6 @@
 import React from 'react';
 import State from './context/state';
+import Setup from './containers/setup';
 
 const Router = () => (
   <State.Consumer>
@@ -8,9 +9,7 @@ const Router = () => (
         state.accessToken && state.folder ?
           <p>AUTHORIZED</p>
           :
-          <div>
-            TO AUTHORIZE
-          </div>
+          <Setup />
       )
     }
   </State.Consumer>

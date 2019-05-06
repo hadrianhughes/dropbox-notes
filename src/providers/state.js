@@ -20,7 +20,7 @@ const StateProvider = ({ children }) => {
   const actions = Object.keys(model).reduce((obj, key) => {
     // e.g. change accessToken to setAccessToken
     const actionName = `set${key.substr(0, 1).toUpperCase()}${key.substr(1)}`;
-    const actionValue = v => setState(key, v, obj[key].type);
+    const actionValue = v => setState(key, v, model[key].type);
     return { ...obj, [actionName]: actionValue };
   }, {});
 

@@ -7,10 +7,9 @@ export const StyledLink = styled.a`
   border-radius: 7px;
   color: ${colorWhite};
   cursor: pointer;
-  display: block;
+  display: inline-block;
   font-size: 18px;
-  margin: 0 auto;
-  width: 120px;
+  width: auto;
   padding: ${spacing(1.5, 3)};
   position: relative;
   text-align: center;
