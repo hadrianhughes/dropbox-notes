@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ctxState from '../../context/state';
 import Setup from '../../components/Setup';
 
@@ -11,6 +11,7 @@ const loadProperty = (obj, prop, setter) => {
 
 const SetupContainer = () => {
   const { state, actions } = useContext(ctxState);
+  const [folderInput, setFolderInput] = useState('');
 
   loadProperty(state, 'accessToken', actions.setAccessToken);
   loadProperty(state, 'folder', actions.setFolder);
@@ -37,7 +38,9 @@ const SetupContainer = () => {
   return (
     <Setup
       stage={stage}
-      authenticationUrl={accessToken} />
+      authenticationUrl={accessToken}
+      folderInput={folderInput}
+      onFolderChange={e => setFolderInput(e.target.value)} />
   );
 };
 

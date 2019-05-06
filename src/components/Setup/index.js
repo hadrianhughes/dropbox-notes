@@ -1,18 +1,28 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
-import { authenticateLabel } from '../../strings';
+import Input from '../Input';
+import { authenticateLabel, folderInputPlaceholder } from '../../strings';
 import { SetupSection } from './styles';
 
-const Setup = ({ stage, authenticationUrl }) => (
+const Setup = ({ stage, authenticationUrl, folderInput, setFolderInput }) => (
   <SetupSection>
     {
-      stage === 1 ?
-        <Fragment>
-          <Button label={authenticateLabel} href={authenticationUrl} />
-        </Fragment>
-        :
-        <div />
+      (() => {
+        switch (stage) {
+        case 1:
+          return (
+            <Button label={authenticateLabel} href={authenticationUrl} />
+          );
+        case 2:
+          return (
+            <Input
+              placeholder={folderInputPlaceholder}
+              value={folderInput}
+              onChange={setFolderInput} />
+          );
+        }
+      })()
     }
   </SetupSection>
 );
@@ -20,13 +30,17 @@ const Setup = ({ stage, authenticationUrl }) => (
 Setup.propTypes = {
   stage: PropTypes.number,
   authenticateLabel: PropTypes.string,
-  authenticationUrl: PropTypes.string
+  authenticationUrl: PropTypes.string,
+  folderInput: PropTypes.string,
+  setFolderInput: PropTypes.func
 };
 
 Setup.defaultProps = {
   stage: 1,
   authenticateLabel: '',
-  authenticationUrl: ''
+  authenticationUrl: '',
+  folderInput: '',
+  setFolderInput: () => {}
 };
 
 export default Setup;

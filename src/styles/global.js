@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { colorBlack, colorWhite } from './settings/colors';
+import { spacing } from './settings/layout';
 import { fonts, createFont } from './fonts';
 
 const fontDeclarations = fonts.map(f => createFont(...Object.values(f)));
@@ -10,7 +11,7 @@ export default createGlobalStyle`
     color: ${colorBlack};
     font-family: 'Fira Code';
     font-size: 16px;
-    margin: 0;
+    margin: ${spacing(0, 2)};
   }
 
   ${fontDeclarations.join('\n')};
