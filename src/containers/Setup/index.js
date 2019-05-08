@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import ctxState from '../../context/state';
+import ctxDropbox from '../../context/dropbox';
 import Setup from '../../components/Setup';
 
 const loadProperty = (obj, prop, setter) => {
@@ -11,6 +12,7 @@ const loadProperty = (obj, prop, setter) => {
 
 const SetupContainer = () => {
   const { state, actions } = useContext(ctxState);
+  const dropbox = useContext(ctxDropbox);
   const [folderInput, setFolderInput] = useState('');
 
   loadProperty(state, 'accessToken', actions.setAccessToken);
@@ -35,10 +37,12 @@ const SetupContainer = () => {
 
   if (folder) stage = 3;
 
+  const authenticationUrl = dropbox ? dropbox.getAuthenticationUrl('http://localhost:8080') : '';
+
   return (
     <Setup
       stage={stage}
-      authenticationUrl={accessToken}
+      authenticationUrl={authenticationUrl}
       folderInput={folderInput}
       onFolderChange={e => setFolderInput(e.target.value)} />
   );

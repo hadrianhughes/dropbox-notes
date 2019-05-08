@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import Input from '../Input';
-import { authenticateLabel, folderInputPlaceholder } from '../../strings';
-import { SetupSection } from './styles';
+import { authenticateLabel, folderInputPlaceholder, setFolderLabel } from '../../strings';
+import { SetupSection, SetupButton } from './styles';
 
-const Setup = ({ stage, authenticationUrl, folderInput, setFolderInput }) => (
+const Setup = ({ stage, authenticationUrl, folderInput, onFolderChange }) => (
   <SetupSection>
     {
       (() => {
@@ -16,10 +16,13 @@ const Setup = ({ stage, authenticationUrl, folderInput, setFolderInput }) => (
           );
         case 2:
           return (
-            <Input
-              placeholder={folderInputPlaceholder}
-              value={folderInput}
-              onChange={setFolderInput} />
+            <Fragment>
+              <Input
+                placeholder={folderInputPlaceholder}
+                value={folderInput}
+                onChange={onFolderChange} />
+              <SetupButton label={setFolderLabel} onClick={() => console.info('ran')} />
+            </Fragment>
           );
         }
       })()
@@ -32,7 +35,7 @@ Setup.propTypes = {
   authenticateLabel: PropTypes.string,
   authenticationUrl: PropTypes.string,
   folderInput: PropTypes.string,
-  setFolderInput: PropTypes.func
+  onFolderChange: PropTypes.func
 };
 
 Setup.defaultProps = {
@@ -40,7 +43,7 @@ Setup.defaultProps = {
   authenticateLabel: '',
   authenticationUrl: '',
   folderInput: '',
-  setFolderInput: () => {}
+  onFolderChange: () => {}
 };
 
 export default Setup;
