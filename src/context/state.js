@@ -8,7 +8,7 @@ export const model = {
   folder: {
     type: 'string',
     persist: true,
-  }
+  },
 };
 
 export const initialState = Object.keys(model).reduce((obj, key) => ({

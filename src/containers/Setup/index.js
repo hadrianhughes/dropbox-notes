@@ -40,12 +40,20 @@ const SetupContainer = () => {
 
   const authenticationUrl = dropbox ? dropbox.getAuthenticationUrl(get(process.env, 'REDIRECT_URL')) : '';
 
+  const updateFolderInState = () => {
+    if (actions && actions.setFolder && folderInput) {
+      actions.setFolder(folderInput);
+      localStorage.setItem('folder', folderInput);
+    }
+  };
+
   return (
     <Setup
       stage={stage}
       authenticationUrl={authenticationUrl}
       folderInput={folderInput}
-      onFolderChange={e => setFolderInput(e.target.value)} />
+      onFolderChange={e => setFolderInput(e.target.value)}
+      onSubmitFolder={updateFolderInState} />
   );
 };
 

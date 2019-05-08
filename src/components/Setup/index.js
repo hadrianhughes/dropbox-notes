@@ -5,7 +5,13 @@ import Input from '../Input';
 import { authenticateLabel, folderInputPlaceholder, setFolderLabel } from '../../strings';
 import { SetupSection, SetupButton } from './styles';
 
-const Setup = ({ stage, authenticationUrl, folderInput, onFolderChange }) => (
+const Setup = ({
+  stage,
+  authenticationUrl,
+  folderInput,
+  onFolderChange,
+  onSubmitFolder,
+}) => (
   <SetupSection>
     {
       (() => {
@@ -21,9 +27,11 @@ const Setup = ({ stage, authenticationUrl, folderInput, onFolderChange }) => (
                 placeholder={folderInputPlaceholder}
                 value={folderInput}
                 onChange={onFolderChange} />
-              <SetupButton label={setFolderLabel} onClick={() => console.info('ran')} />
+              <SetupButton label={setFolderLabel} onClick={onSubmitFolder} />
             </Fragment>
           );
+        case 3:
+          return <p>All set up!</p>;
         }
       })()
     }
@@ -35,7 +43,8 @@ Setup.propTypes = {
   authenticateLabel: PropTypes.string,
   authenticationUrl: PropTypes.string,
   folderInput: PropTypes.string,
-  onFolderChange: PropTypes.func
+  onFolderChange: PropTypes.func,
+  onSubmitFolder: PropTypes.func,
 };
 
 Setup.defaultProps = {
@@ -43,7 +52,8 @@ Setup.defaultProps = {
   authenticateLabel: '',
   authenticationUrl: '',
   folderInput: '',
-  onFolderChange: () => {}
+  onFolderChange: () => {},
+  onSubmitFolder: () => {},
 };
 
 export default Setup;
