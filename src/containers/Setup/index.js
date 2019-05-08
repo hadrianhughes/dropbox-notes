@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import ctxState from '../../context/state';
 import ctxDropbox from '../../context/dropbox';
 import Setup from '../../components/Setup';
+import { get } from '../../utils';
 
 const loadProperty = (obj, prop, setter) => {
   if (!obj[prop]) {
@@ -37,7 +38,7 @@ const SetupContainer = () => {
 
   if (folder) stage = 3;
 
-  const authenticationUrl = dropbox ? dropbox.getAuthenticationUrl('http://localhost:8080') : '';
+  const authenticationUrl = dropbox ? dropbox.getAuthenticationUrl(get(process.env, 'REDIRECT_URL')) : '';
 
   return (
     <Setup

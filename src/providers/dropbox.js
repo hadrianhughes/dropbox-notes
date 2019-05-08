@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Dropbox } from 'dropbox';
 import DropboxContext from '../context/dropbox';
-
-const CLIENT_ID = 'yfko15m46urzkrj';
+import { get } from '../utils';
 
 const DropboxProvider = ({ children }) => {
   const [dropbox, setDropbox] = useState(undefined);
 
   useEffect(() => {
-    const dbx = new Dropbox({ clientId: CLIENT_ID });
+    const dbx = new Dropbox({ clientId: get(process.env, 'CLIENT_ID') });
     setDropbox(dbx);
   }, []);
 
